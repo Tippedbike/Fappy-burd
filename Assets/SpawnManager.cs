@@ -19,6 +19,6 @@ public class SwapnManager : MonoBehaviour
 
     void PipeSpwan()
     { 
-       Instantiate( Pipe, new Vector2(10, Random.Range( f, f)), Quaternion.indentity);
+       Instantiate( Pipe, new Vector2(10, Random.Range( 100f, 100f)), Quaternion.indentity);
     }
 }
