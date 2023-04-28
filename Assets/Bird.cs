@@ -7,19 +7,24 @@ public class Bird : MonoBehaviour
 {
     Rigidbody2D bird;
     int score = 0;
-    public Text scoreUI;
+    public Text scoreUI; //Score//
+    public bool isAlive; //checks if bird's heart is beating//
 
     // Start is called before the first frame update
     void Start()
     {
         bird = GetComponent<Rigidbody2D>();
+        bird = GetComponent<Rigidbody>();
+        //Gives bird heart//
+        isAlive = true;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKeyDown(KeyCode.Space)){
+       if(Input.GetKeyDown(KeyCode.Space) && isAlive)
+       {
         bird.AddForce(new Vector2(0,1) * 450);
        } 
     }
@@ -32,5 +37,10 @@ public class Bird : MonoBehaviour
 
         scoreUI.text = score.ToString();
       }
+    }
+    private void OnCollisionEnter2D(Collision other)
+    {
+      isAlive = false;
+      //bird overdosed upon touching a wall//
     }
 }
