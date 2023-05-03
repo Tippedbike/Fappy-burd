@@ -13,8 +13,8 @@ public class Bird : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         bird = GetComponent<Rigidbody2D>();
-        bird = GetComponent<Rigidbody>();
         //Gives bird heart//
         isAlive = true;
 
@@ -27,6 +27,7 @@ public class Bird : MonoBehaviour
        {
         bird.AddForce(new Vector2(0,1) * 450);
        } 
+       //bird cracksa redbull a flies// 
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -38,7 +39,7 @@ public class Bird : MonoBehaviour
         scoreUI.text = score.ToString();
       }
     }
-    private void OnCollisionEnter2D(Collision other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
       isAlive = false;
       //bird overdosed upon touching a wall//

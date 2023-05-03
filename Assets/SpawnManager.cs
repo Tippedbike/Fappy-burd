@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject Pipes;
-    PlayerController birdscript;
+    Bird birdscript;
     float randomHeight = 0.5f; 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,10 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
+      if(birdscript.isAlive == false)
+      {
+         CancelInvoke();
+      }
     }
 
     void PipeSpawn()
